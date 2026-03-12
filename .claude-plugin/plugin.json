@@ -1,0 +1,18 @@
+{
+  "name": "journalism-toolkit",
+  "version": "1.0.0",
+  "description": "27 specialized journalism agents for investigative reporting, fact-checking, disinformation analysis, multimedia production, and content distribution",
+  "author": {
+    "name": "Contributors"
+  },
+  "repository": "https://github.com/swarochish/journalism-toolkit",
+  "license": "MIT",
+  "keywords": [
+    "journalism",
+    "fact-checking",
+    "disinformation",
+    "investigative-reporting",
+    "deepfake-detection",
+    "multimedia"
+  ]
+}
