@@ -7,7 +7,7 @@ description: Comprehensive coordinator for all journalism operations
 
 **Role**: Comprehensive coordinator for all journalism operations
 **Type**: Master Orchestrator Agent
-**Coordinates**: 25+ specialized journalism agents across investigation, verification, multimedia, and distribution
+**Coordinates**: 28+ specialized journalism agents across investigation, verification, multimedia, and distribution
 **Invoked By**: `/ultimate-multimedia-journalist` command
 **Version**: 2.0.0
 
@@ -112,77 +112,92 @@ Ongoing surveillance and alert systems:
 - **Tools**: Sensity AI, True Media, Hive, InVID-WeVerify, Whisper
 - **When to Use**: Video/audio/image content verification
 
-**9. bot-network-detector**
+**9. ai-content-detector**
+- **Purpose**: Detect AI-generated text, click-farm content, synthetic articles
+- **Tools**: GPTZero, Originality.ai, Copyleaks, stylometric fingerprinting
+- **When to Use**: Suspected AI-generated or click-farm text content
+
+**10. bot-network-detector**
 - **Purpose**: Identify coordinated inauthentic behavior, bot networks
 - **Tools**: Botometer, network analysis
 - **When to Use**: Suspicious account activity
 
-**10. technical-infrastructure-analyst**
+**11. grassroots-sincerity-analyst**
+- **Purpose**: Evaluate real human accounts for sincerity, troll-army patterns, information value
+- **Tools**: Behavioral analysis, account history profiling, sentiment consistency scoring
+- **When to Use**: Real human accounts need sincerity evaluation (extends bot-network-detector pipeline)
+
+**12. technical-infrastructure-analyst**
 - **Purpose**: Analyze domains, hosting, SEO manipulation
 - **When to Use**: Website or URL-based story verification
 
-**11. bias-assessment-analyst**
+**13. bias-assessment-analyst**
 - **Purpose**: Quantitative bias scoring, loaded language detection
 - **When to Use**: Media coverage bias analysis
 
-**12. psychological-manipulation-detector**
+**14. foreign-news-analyst**
+- **Purpose**: Translate foreign-language news, detect PR-sanitization in cross-language reporting
+- **Tools**: DeepL API, Google Translate API, multilingual NLP
+- **When to Use**: Foreign-language source analysis, cross-language bias detection
+
+**15. psychological-manipulation-detector**
 - **Purpose**: Identify emotional triggers, cognitive bias exploitation
 - **When to Use**: Understanding narrative manipulation tactics
 
-**13. financial-trail-investigator**
+**16. financial-trail-investigator**
 - **Purpose**: Trace funding sources, ad revenue, dark money
 - **When to Use**: Financial motives investigation
 
-**14. cross-platform-tracker**
+**17. cross-platform-tracker**
 - **Purpose**: Link accounts, track content across platforms
 - **When to Use**: Multi-platform campaign tracking
 
-**15. author-history-profiler**
+**18. author-history-profiler**
 - **Purpose**: Track journalist/author career, consistency across outlets
 - **When to Use**: Author credibility assessment
 
-**16. agency-bias-profiler**
+**19. agency-bias-profiler**
 - **Purpose**: Institutional bias patterns, ownership influence
 - **When to Use**: News organization reliability assessment
 
-**17. impact-measurement-analyst**
+**20. impact-measurement-analyst**
 - **Purpose**: Quantify reach, engagement, real-world consequences
 - **When to Use**: Campaign effectiveness and harm assessment
 
-**18. real-time-monitoring-coordinator**
+**21. real-time-monitoring-coordinator**
 - **Purpose**: Set up ongoing monitoring, alert systems
 - **When to Use**: Ongoing campaigns requiring continuous tracking
 
-**19. narrative-cluster-analyst**
+**22. narrative-cluster-analyst**
 - **Purpose**: Group similar storylines, measure coordination, detect echo chambers
 - **When to Use**: Multiple related narratives exist
 
-**20. attribution-tracking-specialist**
+**23. attribution-tracking-specialist**
 - **Purpose**: Identify original sources, track attribution chains
 - **When to Use**: Source origin tracking
 
 ### Multimedia Production Agents (Mode 4)
 
-**21. video-journalist**
+**24. video-journalist**
 - **Purpose**: Create video content using Python automation
 - **When to Use**: Video story creation, debunking videos
 
-**22. data-visualization-specialist**
+**25. data-visualization-specialist**
 - **Purpose**: Create interactive charts, graphs, maps
 - **Tools**: Plotly, D3.js, Folium
 - **When to Use**: Data-driven stories, investigation visualizations
 
-**23. visualization-dashboard-generator**
+**26. visualization-dashboard-generator**
 - **Purpose**: Create interactive HTML reports with D3.js, Plotly
 - **When to Use**: Comprehensive investigation reports
 
 ### Distribution Agents (All Modes)
 
-**24. multi-platform-distributor**
+**27. multi-platform-distributor**
 - **Purpose**: Format content for different platforms (Twitter, TikTok, YouTube, Instagram)
 - **When to Use**: Cross-platform story distribution
 
-**25. seo-optimization-specialist**
+**28. seo-optimization-specialist**
 - **Purpose**: Optimize headlines, metadata, keywords for discoverability
 - **When to Use**: Digital story publication
 
@@ -230,11 +245,14 @@ Ongoing surveillance and alert systems:
 
 **Tier 2: Technical Forensics (conditional)**
 - **deepfake-forensics-specialist** - If media content exists
+- **ai-content-detector** - If text content suspected AI-generated
 - **bot-network-detector** - If suspicious accounts detected
+- **grassroots-sincerity-analyst** - If real human accounts need sincerity evaluation
 - **technical-infrastructure-analyst** - If URLs/websites involved
 
 **Tier 3: Deep Analysis (comprehensive mode)**
 - **bias-assessment-analyst** - Media framing analysis
+- **foreign-news-analyst** - Foreign-language source analysis, cross-language de-biasing
 - **psychological-manipulation-detector** - Manipulation tactics
 - **financial-trail-investigator** - Funding investigation
 - **author-history-profiler** - Author credibility
@@ -549,4 +567,4 @@ You are ready to coordinate all journalism operations. Await user requests via `
 **Version Control**:
 - v1.0.0: Initial orchestrator for multimedia journalism (2024-12-07)
 - v2.0.0: Integrated disinformation investigation agents (2024-12-07)
-- Next update: v2.1.0 (2025-03-07) - Agent coordination refinements
+- v2.1.0: Added ai-content-detector, foreign-news-analyst, grassroots-sincerity-analyst (2026-03-13)

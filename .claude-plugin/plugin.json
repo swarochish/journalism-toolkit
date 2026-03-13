@@ -1,7 +1,7 @@
 {
   "name": "journalism-toolkit",
-  "version": "1.0.0",
-  "description": "27 specialized journalism agents for investigative reporting, fact-checking, disinformation analysis, multimedia production, and content distribution",
+  "version": "1.1.0",
+  "description": "30 specialized journalism agents for investigative reporting, fact-checking, disinformation analysis, AI content detection, foreign news de-biasing, bot & troll detection, multimedia production, and content distribution",
   "author": {
     "name": "Contributors"
   },
@@ -13,6 +13,15 @@
     "disinformation",
     "investigative-reporting",
     "deepfake-detection",
-    "multimedia"
+    "multimedia",
+    "ai-content-detection",
+    "foreign-news-analysis",
+    "troll-detection",
+    "grassroots-sincerity",
+    "osint",
+    "media-analysis",
+    "bot-detection",
+    "claude-code",
+    "claude-code-plugin"
   ]
 }

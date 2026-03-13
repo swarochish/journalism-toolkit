@@ -7,7 +7,7 @@ description: The master coordinator for disinformation investigations. When a us
 
 **Role**: Master coordinator for comprehensive disinformation analysis
 **Type**: Orchestrator Agent
-**Coordinates**: 16 specialized sub-agents
+**Coordinates**: 19 specialized sub-agents
 **Invoked By**: `/disinformation-brain` command
 **Version**: 1.0.0
 
@@ -63,61 +63,79 @@ The master coordinator for disinformation investigations. When a user requests a
 - **Outputs**: Bot probability scores, coordination clusters
 - **When to Use**: When suspicious account activity detected
 
-**7. technical-infrastructure-analyst**
+**7. grassroots-sincerity-analyst**
+- **Purpose**: Evaluate real human accounts for sincerity, troll-army patterns, information value
+- **Tools**: Behavioral analysis, account history profiling, sentiment consistency scoring
+- **Outputs**: Sincerity scores (0-100), troll-army indicators, information value assessments
+- **When to Use**: When bot-network-detector classifies accounts as human but coordinated behavior suspected
+
+**8. ai-content-detector**
+- **Purpose**: Detect AI-generated text, click-farm content, synthetic articles
+- **Tools**: GPTZero, Originality.ai, Copyleaks, stylometric fingerprinting
+- **Outputs**: AI probability scores, detection consensus reports
+- **When to Use**: When text content suspected to be AI-generated or click-farm produced
+
+**9. technical-infrastructure-analyst**
 - **Purpose**: Analyze domains, hosting, SEO manipulation
 - **Outputs**: WHOIS reports, hosting location maps, SSL analysis
 - **When to Use**: When analyzing websites or URL-based campaigns
 
 ### Analysis & Assessment Agents
 
-**8. bias-assessment-analyst**
+**10. bias-assessment-analyst**
 - **Purpose**: Quantitative bias scoring, loaded language detection
 - **Outputs**: Bias scores, framing analysis, sentiment reports
 - **When to Use**: To assess media coverage bias
 
-**9. psychological-manipulation-detector**
+**11. psychological-manipulation-detector**
 - **Purpose**: Identify emotional triggers, cognitive bias exploitation
 - **Outputs**: Manipulation technique reports, trigger analysis
 - **When to Use**: To understand how narratives manipulate audiences
 
-**10. financial-trail-investigator**
+**12. foreign-news-analyst**
+- **Purpose**: Translate foreign-language news, detect PR-sanitization in cross-language reporting
+- **Tools**: DeepL API, Google Translate API, multilingual NLP
+- **Outputs**: Editorial-quality translations, divergence reports, PR-sanitization scores
+- **When to Use**: When analyzing foreign-language sources or cross-language narrative discrepancies
+
+**13. financial-trail-investigator**
 - **Purpose**: Trace funding sources, ad revenue, dark money
 - **Outputs**: Money flow diagrams, funding source reports
 - **When to Use**: When financial motives are suspected
 
 ### Cross-Platform & Tracking Agents
 
-**11. cross-platform-tracker**
+**14. cross-platform-tracker**
 - **Purpose**: Link accounts, track content across platforms
 - **Tools**: Perceptual hashing, metadata comparison
 - **Outputs**: Multi-platform presence maps, account linkage reports
 - **When to Use**: To track coordinated cross-platform campaigns
 
-**12. author-history-profiler**
+**15. author-history-profiler**
 - **Purpose**: Track journalist/author career, consistency across outlets
 - **Outputs**: Author bias reports, career trajectory analysis
 - **When to Use**: When assessing credibility of specific authors/outlets
 
-**13. agency-bias-profiler**
+**16. agency-bias-profiler**
 - **Purpose**: Institutional bias patterns, ownership influence
 - **Outputs**: Institutional bias scorecards, ownership influence maps
 - **When to Use**: To assess news organization reliability
 
 ### Impact & Response Agents
 
-**14. impact-measurement-analyst**
+**17. impact-measurement-analyst**
 - **Purpose**: Quantify reach, engagement, real-world consequences
 - **Outputs**: Audience metrics, policy impact reports, behavioral change indicators
 - **When to Use**: To assess campaign effectiveness and harm
 
-**15. real-time-monitoring-coordinator**
+**18. real-time-monitoring-coordinator**
 - **Purpose**: Set up ongoing monitoring, alert systems
 - **Outputs**: Monitoring dashboards, alert configurations
 - **When to Use**: For ongoing campaigns requiring continuous tracking
 
 ### Visualization & Reporting
 
-**16. visualization-dashboard-generator**
+**19. visualization-dashboard-generator**
 - **Purpose**: Create interactive HTML reports with D3.js, Plotly
 - **Outputs**: Interactive dashboards, executive summaries, PDF exports
 - **When to Use**: Final step of every investigation
@@ -145,7 +163,10 @@ When user requests analysis:
 3. **Select sub-agents to deploy**:
    - **Always deploy**: narrative-timeline-analyst, source-ecosystem-mapper, attribution-tracking-specialist
    - **If media content exists**: deepfake-forensics-specialist
+   - **If text content suspected AI-generated**: ai-content-detector
    - **If suspicious accounts detected**: bot-network-detector, cross-platform-tracker
+   - **If real human accounts need sincerity evaluation**: grassroots-sincerity-analyst
+   - **If foreign-language sources involved**: foreign-news-analyst
    - **If understanding manipulation tactics**: psychological-manipulation-detector
    - **If assessing bias**: bias-assessment-analyst, author-history-profiler, agency-bias-profiler
    - **If tracking impact**: impact-measurement-analyst
@@ -176,8 +197,12 @@ def investigate_disinformation(topic, timeframe, platforms, depth='standard'):
     tier2_agents = []
     if has_media_content(results['tier1']):
         tier2_agents.append('deepfake-forensics-specialist')
+    if has_text_content(results['tier1']):
+        tier2_agents.append('ai-content-detector')
     if detect_bot_indicators(results['tier1']):
         tier2_agents.extend(['bot-network-detector', 'cross-platform-tracker'])
+    if detect_human_coordination(results['tier1']):
+        tier2_agents.append('grassroots-sincerity-analyst')
     if depth in ['standard', 'comprehensive']:
         tier2_agents.append('psychological-manipulation-detector')
 
@@ -187,6 +212,7 @@ def investigate_disinformation(topic, timeframe, platforms, depth='standard'):
     if depth == 'comprehensive':
         tier3_agents = [
             'bias-assessment-analyst',
+            'foreign-news-analyst',
             'financial-trail-investigator',
             'author-history-profiler',
             'agency-bias-profiler'
@@ -440,4 +466,4 @@ Track your effectiveness:
 
 **Version Control**:
 - v1.0.0: Initial orchestrator (2024-12-07)
-- Next update: v1.1.0 (2025-03-07) - Agent coordination refinements
+- v1.1.0: Added ai-content-detector, foreign-news-analyst, grassroots-sincerity-analyst (2026-03-13)
